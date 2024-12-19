@@ -1,0 +1,36 @@
+# CryptoLexicon - A Simple Dictionary App
+
+# Predefined dictionary data
+dictionary = {
+    "blockchain": "A decentralized digital ledger that records transactions across many computers.",
+    "smart contract": "A self-executing contract with the terms directly written into code.",
+    "NFT": "Non-Fungible Token, a unique digital asset representing ownership of a specific item or piece of content.",
+    "decentralization": "The process of distributing and delegating power away from a central authority.",
+    "metaverse": "A shared virtual space where users can interact with a computer-generated environment and other users.",
+    "gas fees": "Fees required to execute transactions on a blockchain, typically measured in small amounts of cryptocurrency.",
+    "staking": "The process of locking cryptocurrency to support network operations in exchange for rewards.",
+    "wallet": "A software or hardware tool used to store and manage cryptocurrencies and digital assets.",
+    "tokenomics": "The study of a cryptocurrency's design, distribution, and economics.",
+    "DAO": "Decentralized Autonomous Organization, an organization governed by smart contracts and consensus rather than a central authority."
+}
+
+# App functionality
+def cryptolexicon():
+    print("Welcome to CryptoLexicon - Your Web3 Dictionary App!")
+    print("Type 'exit' to quit the app.")
+    
+    while True:
+        # Get user input
+        word = input("\nEnter a word to look up its meaning: ").strip().lower()
+        
+        if word == "exit":
+            print("Exiting CryptoLexicon. Stay decentralized!")
+            break
+        elif word in dictionary:
+            print(f"{word.capitalize()}:\n{dictionary[word]}")
+        else:
+            print(f"'{word}' is not in CryptoLexicon. Try another word!")
+
+# Run the app
+if __name__ == "__main__":
+    cryptolexicon()
