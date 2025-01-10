@@ -1,0 +1,80 @@
+
+# Dictionary of Web3 terms and their meanings
+crypto_terms = {
+    "Decentralization": "The process of distributing and delegating power from a central authority to a network.",
+    "Consensus Mechanism": "A protocol used by blockchain networks to agree on the state of the ledger (e.g., Proof of Work, Proof of Stake).",
+    "dApp": "Decentralized Application - an application built on blockchain technology without a central authority.",
+    "Layer 2": "A secondary framework or protocol built on top of a blockchain to improve scalability and transaction speeds.",
+    "Immutable": "A property of blockchain data that ensures it cannot be changed or tampered with after being recorded.",
+    "Hash": "A unique, fixed-length string generated from data, used to verify integrity on the blockchain.",
+    "Liquidity Pool": "A pool of tokens locked in a smart contract to provide liquidity for decentralized trading.",
+    "Staking": "The process of locking cryptocurrency to support network operations like validating transactions and earning rewards.",
+    "Metaverse": "A digital world combining augmented reality (AR), virtual reality (VR), and blockchain technologies.",
+    "Interoperability": "The ability of different blockchain networks to communicate and work together.",
+    "Zero-Knowledge Proof": "A cryptographic method allowing one party to prove they know something without revealing the information itself.",
+    "Tokenomics": "The economic structure and design of a token, including its supply, demand, and utility.",
+    "Gas Limit": "The maximum amount of computational effort a user is willing to spend on a blockchain transaction.",
+    "Burning": "The process of permanently removing tokens from circulation to reduce supply.",
+    "Fork": "A change or split in a blockchain’s protocol that creates two separate chains.",
+}
+
+# Task structure
+class Task:
+    def __init__(self, title, description):
+        self.title = title
+        self.description = description
+        self.timestamp = datetime.now()
+
+    def __repr__(self):
+        return f"Task(title='{self.title}', description='{self.description}', timestamp='{self.timestamp}')"
+
+# Simulate adding a task to the blockchain
+def add_task_to_blockchain(task):
+    transaction = {
+        "block_id": len(blockchain) + 1,
+        "task": task,
+        "timestamp": datetime.now()
+    }
+    blockchain.append(transaction)
+    return transaction
+
+# Display blockchain
+def display_blockchain():
+    print("\n=== Blockchain ===")
+    for block in blockchain:
+        print(f"Block ID: {block['block_id']}")
+        print(f"Task: {block['task']}")
+        print(f"Timestamp: {block['timestamp']}")
+        print("-" * 30)
+
+# Crypto dictionary lookup
+def lookup_crypto_term(term):
+    return crypto_terms.get(term, "Term not found in the dictionary.")
+
+# Main function
+def task_chain():
+    print("Welcome to TaskChain - A Web3-Inspired To-Do List App!")
+    while True:
+        print("\nMenu:")
+        print("1. Add a Task")
+        print("2. View Tasks (Blockchain)")
+        print("3. Look up Crypto Term")
+        print("4. Exit")
+        
+        choice = input("Enter your choice (1/2/3/4): ")
+        if choice == "1":
+            title = input("Enter the task title: ").strip()
+            description = input("Enter the task description: ").strip()
+            new_task = Task(title, description)
+            transaction = add_task_to_blockchain(new_task)
+            print(f"Task added to blockchain: {transaction}")
+        elif choice == "2":
+            display_blockchain()
+        elif choice == "3":
+            term = input("Enter a crypto term to look up: ").strip()
+            meaning = lookup_crypto_term(term)
+            print(f"\n{term}: {meaning}")
+        elif choice == "4":
+            print("Thank you for using TaskChain. Goodbye!")
+            
+
